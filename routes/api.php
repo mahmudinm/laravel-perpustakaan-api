@@ -19,31 +19,17 @@ $api->version('v1', function (Router $api) {
     });
 
     $api->group(['middleware' => 'jwt.auth'], function(Router $api) {
-        $api->get('protected', function() {
-            return response()->json([
-                'message' => 'Access to protected resources granted! You are seeing this text as you provided the token correctly.'
-            ]);
-        });
+        // User Controller
+        $api->resource('user', 'App\\Api\\V1\\Controllers\\UserController');
 
-        $api->get('refresh', [
-            'middleware' => 'jwt.refresh',
-            function() {
-                return response()->json([
-                    'message' => 'By accessing this endpoint, you can refresh your access token at each request. Check out this response headers!'
-                ]);
-            }
-        ]);
 
+        // Book Controller
         $api->resource('book', 'App\\Api\\V1\\Controllers\\BookController');
         
+        // Peminjaman Controller
         $api->get('peminjaman/create', 'App\\Api\\V1\\Controllers\\PeminjamanController@create');
         $api->get('peminjaman/{peminjaman}/edit', 'App\\Api\\V1\\Controllers\\PeminjamanController@edit');
         $api->resource('peminjaman', 'App\\Api\\V1\\Controllers\\PeminjamanController');
     });
 
-    $api->get('hello', function() {
-        return response()->json([
-            'message' => 'This is a simple example of item returned by your APIs. Everyone can see it.'
-        ]);
-    });
 });
