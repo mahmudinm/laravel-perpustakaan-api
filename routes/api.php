@@ -35,6 +35,10 @@ $api->version('v1', function (Router $api) {
         ]);
 
         $api->resource('book', 'App\\Api\\V1\\Controllers\\BookController');
+        
+        $api->get('peminjaman/create', 'App\\Api\\V1\\Controllers\\PeminjamanController@create');
+        $api->get('peminjaman/{peminjaman}/edit', 'App\\Api\\V1\\Controllers\\PeminjamanController@edit');
+        $api->resource('peminjaman', 'App\\Api\\V1\\Controllers\\PeminjamanController');
     });
 
     $api->get('hello', function() {
