@@ -58,13 +58,13 @@ class UserController extends Controller
         $this->validate($request, [
             'name' => 'required|max:50',
             'email' => 'required|unique:users|max:50',
-            'password' => 'required|max:20'
+            // 'password' => 'required|max:20'
         ]);
 
         $user = new User;
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = $request->password;
+        // $user->password = $request->password;
         $user->save();
 
         return response()->json('success');
@@ -94,13 +94,13 @@ class UserController extends Controller
         $this->validate($request, [
             'name' => 'required|max:50',
             'email' => 'required|max:50',
-            'password' => 'required|max:20'
+            // 'password' => 'required|max:20'
         ]);
 
         $user = User::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = $request->password;
+        // $user->password = $request->password;
         $user->save();
 
         return response()->json('success update');

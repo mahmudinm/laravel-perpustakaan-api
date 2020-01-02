@@ -21,6 +21,8 @@ class PeminjamanController extends Controller
     public function index()
     {
         $peminjamans = Peminjaman::all();
+        $peminjamans->load('book');
+        $peminjamans->load('user');
         return response()->json($peminjamans);
     }
 
