@@ -51,6 +51,18 @@ class BookController extends Controller
     }
 
     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Peminjaman  $peminjaman
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $book = book::find($id);
+        return response()->json($book);
+    }    
+
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

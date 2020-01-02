@@ -20,10 +20,11 @@ $api->version('v1', function (Router $api) {
 
     $api->group(['middleware' => 'jwt.auth'], function(Router $api) {
         // User Controller
+        $api->get('user/{user}/edit', 'App\\Api\\V1\\Controllers\\UserController@edit');
         $api->resource('user', 'App\\Api\\V1\\Controllers\\UserController');
 
-
         // Book Controller
+        $api->get('book/{book}/edit', 'App\\Api\\V1\\Controllers\\BookController@edit');
         $api->resource('book', 'App\\Api\\V1\\Controllers\\BookController');
         
         // Peminjaman Controller
