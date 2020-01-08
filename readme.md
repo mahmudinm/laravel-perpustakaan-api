@@ -10,7 +10,8 @@
 - import database.sql
 - change your config database
 - php artisan key:generate
-- php artisan jwt:generate
+- php artisan jwt:secret
+- php artisan serve
 
 ## Credit to
 [Laravel JWT boilerplate](https://github.com/francescomalatesta/laravel-api-boilerplate-jwt)
