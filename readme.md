@@ -12,3 +12,6 @@
 - change your config database
 - php artisan key:generate
 - php artisan jwt:generate
+
+## Credit to
+[Laravel JWT boilerplate](https://github.com/francescomalatesta/laravel-api-boilerplate-jwt)
