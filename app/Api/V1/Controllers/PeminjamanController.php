@@ -33,13 +33,9 @@ class PeminjamanController extends Controller
      */
     public function create()
     {
-        $users = User::pluck('name', 'id');
-        $books = Book::pluck('name', 'id');
-        return response()
-                    ->json([
-                        'users' => $users, 
-                        'books' => $books
-                    ]);
+        $users = User::select('name', 'id')->get();
+        $books = Book::select('name', 'id')->get();
+        return response()->json([$users, $books]);
     }
 
     /**
@@ -87,14 +83,9 @@ class PeminjamanController extends Controller
     public function edit($id)
     {
         $peminjaman = Peminjaman::find($id);
-        $users = User::pluck('name', 'id');
-        $books = Book::pluck('name', 'id');
-        return response()
-                    ->json([
-                        'peminjaman' => $peminjaman,
-                        'users' => $users,
-                        'books' => $books
-                    ]);
+        $users = User::select('name', 'id')->get();
+        $books = Book::select('name', 'id')->get();
+        return response()->json([$peminjaman, $users, $books]);
     }
 
     /**
